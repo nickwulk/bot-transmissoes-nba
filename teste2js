@@ -1,0 +1,29 @@
+//variáveis
+var data, hora, jogo, transmissao
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+var yyyy = today.getFullYear();
+
+today = dd + '/' + mm + '/' + yyyy;
+
+//entradas
+
+const csv = require('csv-parser')
+const fs = require('fs')
+const dados = []
+
+
+fs.createReadStream('data.csv')
+  .pipe(csv({ separator: ',' }))
+  .on('data', (data) => dados.push(data))
+  .on('end', () => {
+
+    for (var i = 0;  ; i += 4){
+        data = dados[i]
+             if ( typeof data === "undefined") break
+             console.log(data)
+    }
+
+  });
+
