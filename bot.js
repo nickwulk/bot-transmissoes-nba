@@ -269,7 +269,7 @@ dados = ['18/10/2022','Philadelphia 76ers x Boston Celtics','Amazon Prime Video'
 '05/03/2023','Memphis Grizzlies x Los Angeles Clippers','ESPN 2','0h',
 ]
 
-//referenciando datas nos dados
+function checkTransmissao(){
 for (var i = 0;  ; i += 4){
         data = dados[i]
         if ( typeof data === "undefined") break
@@ -284,6 +284,7 @@ if (data == today){
     console.log(msg)
     T.post('statuses/update', { status: msg }, function(err, data, response) { console.log(data) })
 
-};
-}
+}}}
 
+checkTransmissao();
+setInterval(checkTransmissao, 24 * 60 * 60 *1000);
