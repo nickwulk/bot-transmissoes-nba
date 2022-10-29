@@ -15,12 +15,16 @@ const T = new Twit({
   })
 
 //cálculo do dia de hoje
+function getToday(){
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0'); 
 var yyyy = today.getFullYear();
 
 today = dd + '/' + mm + '/' + yyyy;
+
+return today
+}
 
 //entradas de dados
 dados = ['18/10/2022','Philadelphia 76ers x Boston Celtics','Amazon Prime Video','20h30',
@@ -271,18 +275,18 @@ dados = ['18/10/2022','Philadelphia 76ers x Boston Celtics','Amazon Prime Video'
 
 function checkTransmissao(){
 for (var i = 0;  ; i += 4){
-        data = dados[i]
-        if ( typeof data === "undefined") break
+  data = dados[i]
+  if ( typeof data === "undefined") break
 
-//checando se data é hoje e atribuindo à msg
-if (data == today){
-    hora = dados[i+1]
-    jogo = dados[i+2]
-    canal = dados[i+3]
-    var msg = today + ": " + hora + " | " + jogo + " | " + canal
+if (data == getToday()){
+  hora = dados[i+1]
+  jogo = dados[i+2]
+  canal = dados[i+3]
+  var msg = "Transmissão de " + getToday() + ": " + hora + " | " + jogo + " | " + canal
 
-    console.log(msg)
-    T.post('statuses/update', { status: msg }, function(err, data, response) { console.log(data) })
+console.log(msg)
+
+T.post('statuses/update', { status: msg }, function(err, data, response) { console.log(data) })
 
 }}}
 
