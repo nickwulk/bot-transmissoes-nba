@@ -282,7 +282,7 @@ if (data == getToday()){
   hora = dados[i+1]
   jogo = dados[i+2]
   canal = dados[i+3]
-  var msg = "Transmissão de " + getToday() + ": " + hora + " | " + jogo + " | " + canal + "#NBA #NBAnaESPN #NBAnoPrimeVideo #NBAnaBand #NBAnaTNTSports #NBAnoGaules #NBAnoSporTV"
+  var msg = "Transmissão de " + getToday() + ": " + hora + " | " + jogo + " | " + canal + " #NBA #NBAnaESPN #NBAnoPrimeVideo #NBAnaBand #NBAnaTNTSports #NBAnoGaules #NBAnoSporTV"
 
 console.log(msg)
 
