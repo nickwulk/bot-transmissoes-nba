@@ -26,6 +26,8 @@ today = dd + '/' + mm + '/' + yyyy;
 return today
 }
 
+function checkTransmissao(){
+
 //entradas de dados
 dados = ['18/10/2022','Philadelphia 76ers x Boston Celtics','Amazon Prime Video','20h30',
 '19/10/2022','New York Knicks x Memphis Grizzlies','ESPN 2','20h30',
@@ -273,7 +275,6 @@ dados = ['18/10/2022','Philadelphia 76ers x Boston Celtics','Amazon Prime Video'
 '05/03/2023','Memphis Grizzlies x Los Angeles Clippers','ESPN 2','0h',
 ]
 
-function checkTransmissao(){
 for (var i = 0; ; i += 4){
   var data = dados[i]
   if ( typeof data === "undefined") break
