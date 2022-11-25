@@ -274,7 +274,7 @@ dados = ['18/10/2022','Philadelphia 76ers x Boston Celtics','Amazon Prime Video'
 ]
 
 function checkTransmissao(){
-for (var i = 0;  ; i += 4){
+for (var i = 0; ; i += 4){
   data = dados[i]
   if ( typeof data === "undefined") break
 
@@ -288,7 +288,9 @@ console.log(msg)
 
 T.post('statuses/update', { status: msg }, function(err, data, response) { console.log(data) })
 
-}}}
+}}
+setInterval(checkTransmissao, 24 * 60 * 60 *1000);
+
+}
 
 checkTransmissao();
-setInterval(checkTransmissao, 24 * 60 * 60 *1000);
