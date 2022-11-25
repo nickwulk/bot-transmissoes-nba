@@ -275,7 +275,7 @@ dados = ['18/10/2022','Philadelphia 76ers x Boston Celtics','Amazon Prime Video'
 
 function checkTransmissao(){
 for (var i = 0; ; i += 4){
-  data = dados[i]
+  var data = dados[i]
   if ( typeof data === "undefined") break
 
 if (data == getToday()){
