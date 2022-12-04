@@ -8,7 +8,7 @@ console.log("Bot running")
 
 //autenticação
 const T = new Twit({
-    consumer_key: secrets.TWITTER_API_KEY,
+    consumer_key: env.secrets.TWITTER_API_KEY,
     consumer_secret: secrets.TWITTER_API_SECRET,
     access_token: secrets.TWITTER_ACCESS_TOKEN,
     access_token_secret: secrets.TWITTER_ACCESS_TOKEN_SECRET,
