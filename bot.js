@@ -5,12 +5,10 @@ const axios = require('axios').default;
 var dados, data, hora, jogo, canal
 
 console.log("Bot running")
-console.log(process.env.secrets.TWITTER_API_KEY)
-
 
 //autenticação
 const T = new Twit({
-    consumer_key: process.env.secrets.TWITTER_API_KEY,
+    consumer_key: process.env.TWITTER_API_KEY,
     consumer_secret: secrets.TWITTER_API_SECRET,
     access_token: secrets.TWITTER_ACCESS_TOKEN,
     access_token_secret: secrets.TWITTER_ACCESS_TOKEN_SECRET,
