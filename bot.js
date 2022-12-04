@@ -290,7 +290,7 @@ console.log(msg)
 T.post('statuses/update', { status: msg }, function(err, data, response) { console.log(data) })
 
 }}
-setInterval(checkTransmissao, 24 * 60 * 60 *1000);
+// setInterval(checkTransmissao, 24 * 60 * 60 *1000);
 
 }
 
