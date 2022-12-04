@@ -30,4 +30,4 @@ jobs:
         access_token_secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
     - run: npm ci
     - run: npm run build --if-present
-    - run: echo "1 process.env.secrets.TWITTER_API_KEY 2 ${{ secrets.TWITTER_API_KEY }} 3 $TWITTER_API_KEY 4 $access_token"
+    - run: node bot.js
