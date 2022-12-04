@@ -5,7 +5,6 @@ const axios = require('axios').default;
 var dados, data, hora, jogo, canal
 
 console.log("Bot running")
-console.log(env.secrets.TWITTER_API_KEY)
 console.log(process.env.secrets.TWITTER_API_KEY)
 
 
