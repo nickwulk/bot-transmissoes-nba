@@ -24,11 +24,11 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
       env:
-        TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+        consumer_key: ${{ secrets.TWITTER_API_KEY }}
         TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
         TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
         TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
     - run: npm ci
     - run: npm run build --if-present
     - run: |
-        echo "Testando TWITTER_API_KEY: $TWITTER_API_KEY"
+        echo "Testando consumer_key: 1 $TWITTER_API_KEY 2 $consumer_key 3 ${{ secrets.TWITTER_API_KEY }}"
