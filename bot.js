@@ -1,17 +1,14 @@
 //dependências
 require("dotenv").config();
-const Twit = require("twit");
-const axios = require("axios").default;
+const { TwitterApi } = require("twitter-api-v2");
 var dados, data, hora, jogo, canal;
 
-console.log("Bot running");
-
 //autenticação
-const T = new Twit({
-  consumer_key: process.env.TWITTER_API_KEY,
-  consumer_secret: process.env.TWITTER_API_SECRET,
-  access_token: process.env.TWITTER_ACCESS_TOKEN,
-  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
+var client = new TwitterApi({
+  appKey: process.env.TWITTER_CONSUMER_KEY,
+  appSecret: process.env.TWITTER_CONSUMER_SECRET,
+  accessToken: process.env.TWITTER_ACCESS_TOKEN_KEY,
+  accessSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 });
 
 //cálculo do dia de hoje
@@ -26,7 +23,9 @@ function diaDeHoje() {
   return today;
 }
 
+// twitta hoje
 function tweetHoje() {
+  // lê planilha csv
   const csv = require("csv-parser");
   const fs = require("fs");
   const dados = [];
@@ -37,9 +36,11 @@ function tweetHoje() {
     .on("end", () => {
       console.log("Bot running");
 
+      // calcula e retorna quantidade de transmissões
       qtdTransmissoes = dados.length;
       console.log(qtdTransmissoes);
 
+      // itera sobre os dados da planilha
       for (var i = 0; i < dados.length; i++) {
         hoje = diaDeHoje();
         if (dados[i].data == hoje) {
@@ -57,15 +58,17 @@ function tweetHoje() {
             canal +
             " #NBA #NBAnaESPN #NBAnoStarPlus #NBAnoPrimeVideo";
 
-          console.log(msg);
+          // console.log(msg);
 
-          T.post(
-            "statuses/update",
-            { status: msg },
-            function (err, data, response) {
-              console.log(data);
-            }
-          );
+          // twitta usando a api do twitter
+          client.v2
+            .tweet(msg)
+            .then((res) => {
+              console.log(res);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
         }
       }
     });
