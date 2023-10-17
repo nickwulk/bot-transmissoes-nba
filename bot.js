@@ -56,7 +56,7 @@ function tweetHoje() {
             jogo +
             " | " +
             canal +
-            " #NBA #NBAnaESPN #NBAnoStarPlus #NBAnoPrimeVideo";
+            " #NBA #NBAnaESPN #ESPNnoStarPlus #NBAnoPrimeVideo";
 
           // console.log(msg);
 
